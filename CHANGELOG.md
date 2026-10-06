@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.5] - 2026-10-06
+
+### Added
+
+- `README.md`/`INSTALLATION.md`: documented installing via HACS as a
+  custom repository (`RhonanMS/hm-dis-ep-wm55-integration`, category
+  Integration) — already possible ahead of an official HACS default
+  listing.
+
+### Documentation
+
+- Fixed the OFFEN icon example to show it on line 3, not line 2.
+- Documented sending an explicit `icon: aus` for reliable icon clearing on
+  state change.
+- Noted in `CHANGELOG.md` that v1.0.0–v1.0.2 were deleted/unpublished.
+
 ## [1.0.4] - 2026-10-06
 
 ### Fixed
@@ -67,5 +83,6 @@ All notable changes to this project are documented in this file.
 - Full protocol documentation (`HM-Dis-EP-WM55.md`), installation guide
   (`INSTALLATION.md`), and additional docs under `docs/`.
 
+[1.0.5]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.5
 [1.0.4]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.4
 [1.0.3]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.3

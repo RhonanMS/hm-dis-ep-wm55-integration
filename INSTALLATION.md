@@ -1,8 +1,10 @@
 # Installation der HM-Dis-EP-WM55 Integration
 
-Diese Integration ist (noch) nicht über HACS verfügbar, da sie lokal
-entwickelt wurde. Sie muss manuell als „Custom Component" in Home Assistant
-übernommen werden.
+Diese Integration ist (noch) nicht im offiziellen HACS-Default-Repository
+gelistet, erfüllt aber bereits alle HACS-Anforderungen und kann schon jetzt
+als **Custom Repository** in HACS hinzugefügt werden (siehe Option D unten).
+Alternativ erfolgt die Übernahme manuell als „Custom Component" in Home
+Assistant.
 
 ## Voraussetzung
 
@@ -61,6 +63,16 @@ scp -r custom_components/hm_dis_ep_wm55 \
 
 (Pfad ggf. anpassen, je nachdem ob SSH-Add-on oder direkter Zugriff auf das
 Host-Dateisystem genutzt wird.)
+
+### Option D: HACS (Custom Repository)
+
+1. In HACS auf das Drei-Punkte-Menü (oben rechts) → **Custom repositories**.
+2. `RhonanMS/hm-dis-ep-wm55-integration` als Kategorie **Integration**
+   hinzufügen.
+3. „HM-Dis-EP-WM55 Display" in HACS installieren.
+
+Damit übernimmt HACS Schritt 1 automatisch und hält die Integration bei
+neuen Releases aktuell.
 
 ## Schritt 2: Home Assistant neu starten
 

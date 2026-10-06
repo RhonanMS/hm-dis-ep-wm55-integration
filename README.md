@@ -35,7 +35,18 @@ sent via a service you call from your own automations.
 
 ## Installation
 
-This integration is not (yet) published on HACS. Manual installation:
+This integration is not (yet) listed in the official HACS default
+repository, but it already meets all HACS requirements and can be added
+right now as a **custom repository**:
+
+1. In HACS → the three-dot menu (top right) → **Custom repositories**.
+2. Add `RhonanMS/hm-dis-ep-wm55-integration` as category **Integration**.
+3. Install "HM-Dis-EP-WM55 Display" from HACS, then restart Home Assistant.
+4. **Settings → Devices & Services → Add Integration** → search for
+   "HM-Dis-EP-WM55 Display" → select your display device and channel
+   (default `3`).
+
+Alternatively, install manually:
 
 1. Copy `custom_components/hm_dis_ep_wm55/` into your Home Assistant
    `config/custom_components/` directory.
