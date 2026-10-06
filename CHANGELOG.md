@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.3] - 2026-10-06
+
+### Fixed
+
+- Reordered `manifest.json` keys as required by hassfest: `domain`, `name`,
+  then the rest alphabetically.
+
 ## [1.0.2] - 2026-10-06
 
 ### Fixed
@@ -36,6 +43,7 @@ All notable changes to this project are documented in this file.
 - Full protocol documentation (`HM-Dis-EP-WM55.md`), installation guide
   (`INSTALLATION.md`), and additional docs under `docs/`.
 
+[1.0.3]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.3
 [1.0.2]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.2
 [1.0.1]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.1
 [1.0.0]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.0

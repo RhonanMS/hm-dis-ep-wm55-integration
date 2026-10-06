@@ -1,13 +1,13 @@
 {
+  "domain": "hm_dis_ep_wm55",
+  "name": "HM-Dis-EP-WM55 Display",
   "codeowners": ["@RhonanMS"],
   "config_flow": true,
   "dependencies": ["homematicip_local"],
   "documentation": "https://github.com/RhonanMS/hm-dis-ep-wm55-integration",
-  "domain": "hm_dis_ep_wm55",
   "integration_type": "service",
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/RhonanMS/hm-dis-ep-wm55-integration/issues",
-  "name": "HM-Dis-EP-WM55 Display",
   "requirements": [],
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
