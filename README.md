@@ -1,5 +1,6 @@
 # HM-Dis-EP-WM55 for Home Assistant
 
+[![Release][release-shield]][release]
 [![License][license-shield]](LICENSE)
 [![Home Assistant Custom Integration][ha-shield]][ha]
 
@@ -116,6 +117,8 @@ details.
 
 [homematicip-local]: https://github.com/SukramJ/homematicip_local
 [issues]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/issues
+[release]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases
+[release-shield]: https://img.shields.io/github/v/release/RhonanMS/hm-dis-ep-wm55-integration?style=for-the-badge
 [license-shield]: https://img.shields.io/github/license/RhonanMS/hm-dis-ep-wm55-integration.svg?style=for-the-badge
 [ha-shield]: https://img.shields.io/badge/Home%20Assistant-Custom%20Integration-41BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white
 [ha]: https://www.home-assistant.io/getting-started/concepts-terminology/#integrations
