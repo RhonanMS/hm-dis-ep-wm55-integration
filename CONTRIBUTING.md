@@ -27,7 +27,7 @@ how the module is loaded standalone).
 ## Protocol Changes
 
 The SUBMIT byte protocol in `protocol.py` was reverse-engineered and
-hardware-verified (see "Verifizierte Tests" in [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md)).
+hardware-verified (see "Verified Tests" in [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md)).
 If you change anything in `protocol.py`:
 
 1. Make sure `tests/test_protocol.py` still passes — it pins the two

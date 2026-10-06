@@ -16,7 +16,7 @@ developed with agentic AI assistance, primarily
 AI assistance accelerated the work; it did not replace verification. Every
 protocol detail that ended up in `protocol.py` was checked against actual
 SUBMIT strings sent to a physical HM-Dis-EP-WM55 device by the maintainer —
-see the "Verifizierte Tests" section in [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md)
+see the "Verified Tests" section in [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md)
 for the exact byte strings and observed display behavior. Several
 AI-generated assumptions about the protocol turned out to be wrong on first
 attempt and were corrected only after hardware testing; this history is kept

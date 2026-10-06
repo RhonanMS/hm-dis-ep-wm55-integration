@@ -97,7 +97,7 @@ Parts of this project — including the protocol reverse-engineering, the
 integration code, tests and documentation — were developed with agentic AI
 assistance, primarily [Claude Code](https://www.anthropic.com/claude-code).
 Every protocol detail was nonetheless verified against a real HM-Dis-EP-WM55
-device by a human before landing in `protocol.py` — see the "Verifizierte
+device by a human before landing in `protocol.py` — see the "Verified
 Tests" section in [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md). Details and
 expectations for contributions: [AI_POLICY.md](AI_POLICY.md).
 
