@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.4] - 2026-10-06
+
+### Fixed
+
+- `protocol.py`: a line block is now always sent with at least a space
+  character as text. Hardware testing showed the display silently ignores
+  any line block without text bytes (both a fully empty `0x0A` block and an
+  icon-only block) and keeps showing the line's previous content — so
+  blanking a line or showing an icon without visible text now requires a
+  space filler. See the "Line Block" and "Verified Tests" sections in
+  [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md) (Test C/D) for details.
+
 ## [1.0.3] - 2026-10-06
 
 ### Fixed
@@ -43,6 +55,7 @@ All notable changes to this project are documented in this file.
 - Full protocol documentation (`HM-Dis-EP-WM55.md`), installation guide
   (`INSTALLATION.md`), and additional docs under `docs/`.
 
+[1.0.4]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.4
 [1.0.3]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.3
 [1.0.2]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.2
 [1.0.1]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.1

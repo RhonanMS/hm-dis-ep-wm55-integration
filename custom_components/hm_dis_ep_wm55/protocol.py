@@ -76,15 +76,21 @@ def _resolve_code(mapping: dict[str, int], name: str | None, kind: str) -> int |
 
 
 def build_line_block(text: str | None, icon: str | None) -> list[str]:
-    """Baut den Protokoll-Block für eine Zeile (Text + optionales Icon)."""
+    """Baut den Protokoll-Block für eine Zeile (Text + optionales Icon).
+
+    Das Gerät aktualisiert eine Zeile nur, wenn der Block Text-Bytes enthält
+    (hardware-verifiziert) - ein reiner Icon-Block oder ein leerer Block
+    (nur `0x0A`) werden stillschweigend ignoriert und lassen den vorherigen
+    Zeileninhalt unverändert stehen. Deshalb wird fehlender Text hier immer
+    durch ein Leerzeichen ersetzt, damit auch "Zeile leeren" und "nur Icon
+    anzeigen" zuverlässig funktionieren.
+    """
     icon_code = _resolve_code(ICON_CODES, icon, "Icon")
-    tokens: list[str] = []
-    if text or icon_code is not None:
-        tokens.append(LINE_TEXT_PREFIX)
-        tokens.extend(encode_text(text))
-        if icon_code is not None:
-            tokens.append(LINE_ICON_PREFIX)
-            tokens.append(_byte(icon_code))
+    tokens: list[str] = [LINE_TEXT_PREFIX]
+    tokens.extend(encode_text(text or " "))
+    if icon_code is not None:
+        tokens.append(LINE_ICON_PREFIX)
+        tokens.append(_byte(icon_code))
     tokens.append(LINE_BLOCK_END)
     return tokens
 

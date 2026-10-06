@@ -1,21 +1,28 @@
 """Tests für custom_components/hm_dis_ep_wm55/protocol.py.
 
-Test A und Test B sind die beiden Strings, die am echten HM-Dis-EP-WM55
-erfolgreich getestet wurden (siehe HM-Dis-EP-WM55.md).
+Test A und Test B sind die ursprünglich am echten HM-Dis-EP-WM55 erfolgreich
+getesteten Strings (siehe "Verified Tests" in HM-Dis-EP-WM55.md). Sie nutzten
+für die leere Zeile 3 noch einen reinen `0x0A`-Block. Ein späterer,
+ebenfalls hardware-verifizierter Test zeigte, dass ein Block ohne Text-Bytes
+(egal ob komplett leer oder nur mit Icon) vom Gerät ignoriert wird und die
+vorherige Zeile unverändert lässt - der `0x0A`-Block in Test A/B hat damals
+nur deshalb "leer" ausgesehen, weil das Display frisch resettet war. Seitdem
+füllt `build_line_block` fehlenden Text immer mit einem Leerzeichen auf
+(ebenfalls hardware-verifiziert), siehe TEST_A_FIXED/TEST_B_FIXED unten.
 """
 from __future__ import annotations
 
 import pytest
 from hm_dis_ep_wm55 import protocol
 
-TEST_A = (
-    "0x02,0x0A,0x12,0x54,0x65,0x78,0x74,0x13,0x81,0x0A,0x0A,0x12,0x54,0x65,0x78,"
-    "0x74,0x20,0x31,0x13,0x84,0x0A,0x14,0xC0,0x1C,0xD0,0x1D,0xE0,0x16,0xF0,0x03"
+TEST_A_FIXED = (
+    "0x02,0x0A,0x12,0x54,0x65,0x78,0x74,0x13,0x81,0x0A,0x12,0x20,0x0A,0x12,0x54,"
+    "0x65,0x78,0x74,0x20,0x31,0x13,0x84,0x0A,0x14,0xC0,0x1C,0xD0,0x1D,0xE0,0x16,0xF0,0x03"
 )
 
-TEST_B = (
-    "0x02,0x0A,0x12,0x54,0x65,0x78,0x74,0x13,0x81,0x0A,0x0A,0x12,0x54,0x65,0x78,"
-    "0x74,0x20,0x31,0x13,0x84,0x0A,0x14,0xC5,0x1C,0xD0,0x1D,0xE0,0x16,0xF1,0x03"
+TEST_B_FIXED = (
+    "0x02,0x0A,0x12,0x54,0x65,0x78,0x74,0x13,0x81,0x0A,0x12,0x20,0x0A,0x12,0x54,"
+    "0x65,0x78,0x74,0x20,0x31,0x13,0x84,0x0A,0x14,0xC5,0x1C,0xD0,0x1D,0xE0,0x16,0xF1,0x03"
 )
 
 
@@ -32,7 +39,7 @@ def test_build_submit_string_matches_verified_test_a():
         distance=10,
         led="aus",
     )
-    assert result == TEST_A
+    assert result == TEST_A_FIXED
 
 
 def test_build_submit_string_matches_verified_test_b():
@@ -48,16 +55,18 @@ def test_build_submit_string_matches_verified_test_b():
         distance=10,
         led="rot",
     )
-    assert result == TEST_B
+    assert result == TEST_B_FIXED
 
 
-def test_empty_line_without_icon_is_just_block_end():
-    assert protocol.build_line_block(None, None) == ["0x0A"]
-    assert protocol.build_line_block("", None) == ["0x0A"]
+def test_empty_line_is_filled_with_space_to_force_update():
+    assert protocol.build_line_block(None, None) == ["0x12", "0x20", "0x0A"]
+    assert protocol.build_line_block("", None) == ["0x12", "0x20", "0x0A"]
 
 
-def test_icon_only_line_omits_text_prefix_content_but_keeps_structure():
-    assert protocol.build_line_block(None, "aus") == ["0x12", "0x13", "0x80", "0x0A"]
+def test_icon_only_line_is_filled_with_space_so_icon_actually_applies():
+    assert protocol.build_line_block(None, "aus") == [
+        "0x12", "0x20", "0x13", "0x80", "0x0A",
+    ]
 
 
 def test_umlauts_are_encoded_natively():

@@ -43,6 +43,22 @@ icon ERROR, no sound, no LED blinking:
 
 Both strings were sent and produced the expected display/sound/LED behavior.
 
+> Note: in Test A/B, line 3 is a bare `0x0A` block and still displayed as
+> blank — but that's because the display had just been reset, not because
+> `0x0A` alone clears a line. See the warning under "Line Block" below and
+> Test C/D, which isolate that behavior on a display that already had
+> content on the line in question.
+
+**Test C** — a block with only an icon, no text (`0x12,0x13,0x82,0x0A`,
+sent to a line that previously showed text with no icon): the line kept
+showing its previous text, and no icon appeared. Confirms a block needs
+text bytes to be applied at all.
+
+**Test D** — a block with a single space as text, no icon
+(`0x12,0x20,0x0A`), sent to a line that previously showed "Bad Bür": the
+line went blank. Confirms a space is sufficient (and necessary) to clear a
+line or to show an icon without visible text.
+
 ## Protocol Structure
 
 ```
@@ -66,15 +82,27 @@ result purely from the **order** in which the three blocks are sent.
 
 Each of the three blocks has the following structure:
 
-* If text and/or an icon should be set:
-  `0x12` + [text as hex codes, see character set] + (`0x13` + [icon code], only if an icon is set)
-* Followed **always** by `0x0A` to close the block — even if neither text
-  nor an icon is sent for this line (in that case the block consists only
-  of `0x0A`, and the line stays empty/is cleared, since every transmission
-  always replaces the complete display state).
+`0x12` + [text as hex codes, see character set] + (`0x13` + [icon code], only if an icon is set) + `0x0A`
 
 Example for "Text" with icon ON on the first line:
 `0x12,0x54,0x65,0x78,0x74,0x13,0x81,0x0A`
+
+> **Important, hardware-verified:** A block **must** contain at least one
+> text byte to actually be applied. A block with no text — whether
+> completely empty (`0x0A` only) or icon-only (`0x12,0x13,<icon>,0x0A`) —
+> is silently **ignored** by the device; the line keeps showing whatever it
+> displayed before. This was confirmed by two isolated tests: an icon-only
+> block left the previous text and icon unchanged, and sending `0x0A` for a
+> line that already showed something from an earlier message also left it
+> unchanged. (A block that looked "empty but worked" in an earlier version
+> of this doc only did so because the display had just been power-cycled —
+> there was nothing left to clear.)
+>
+> **To clear a line or show an icon without visible text, send a single
+> space (`0x20`) as the text** — this was hardware-verified to work:
+> `0x12,0x20,0x0A` reliably blanks a line that previously showed text.
+> The `protocol.py` encoder in this repository does this automatically —
+> `build_line_block()` always fills empty text with a space.
 
 ### Text
 
