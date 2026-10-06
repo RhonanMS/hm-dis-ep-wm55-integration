@@ -21,7 +21,11 @@ All notable changes to this project are documented in this file.
 - Reordered `manifest.json` keys as required by hassfest: `domain`, `name`,
   then the rest alphabetically.
 
-## [1.0.2] - 2026-10-06
+## 1.0.2 - 2026-10-06
+
+> **Note:** this release/tag was deleted after v1.0.3 was published and is
+> no longer available on GitHub — superseded within minutes by the fix
+> below. Kept here only for a complete history.
 
 ### Fixed
 
@@ -29,7 +33,11 @@ All notable changes to this project are documented in this file.
   manifest field (hassfest rejected it); the minimum Home Assistant version
   is already declared correctly in `hacs.json`.
 
-## [1.0.1] - 2026-10-06
+## 1.0.1 - 2026-10-06
+
+> **Note:** this release/tag was deleted after v1.0.3 was published and is
+> no longer available on GitHub — superseded within minutes by v1.0.2/v1.0.3.
+> Kept here only for a complete history.
 
 ### Added
 
@@ -38,7 +46,11 @@ All notable changes to this project are documented in this file.
   HACS validation and `hassfest`, repository topics.
 - `manifest.json`: `homeassistant` minimum version and `integration_type`.
 
-## [1.0.0] - 2026-10-06
+## 1.0.0 - 2026-10-06
+
+> **Note:** this release/tag was deleted after v1.0.3 was published and is
+> no longer available on GitHub — superseded by v1.0.1. Kept here only for
+> a complete history.
 
 ### Added
 
@@ -57,6 +69,3 @@ All notable changes to this project are documented in this file.
 
 [1.0.4]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.4
 [1.0.3]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.3
-[1.0.2]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.2
-[1.0.1]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.1
-[1.0.0]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.0
