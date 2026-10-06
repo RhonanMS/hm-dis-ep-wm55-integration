@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.1] - 2026-10-06
+
+### Added
+
+- HACS publishing readiness: `hacs.json`, brand icon
+  (`custom_components/hm_dis_ep_wm55/brand/icon.png`), GitHub Actions for
+  HACS validation and `hassfest`, repository topics.
+- `manifest.json`: `homeassistant` minimum version and `integration_type`.
+
 ## [1.0.0] - 2026-10-06
 
 ### Added
@@ -19,4 +28,5 @@ All notable changes to this project are documented in this file.
 - Full protocol documentation (`HM-Dis-EP-WM55.md`), installation guide
   (`INSTALLATION.md`), and additional docs under `docs/`.
 
+[1.0.1]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.1
 [1.0.0]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.0
