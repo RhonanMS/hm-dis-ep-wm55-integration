@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Écran HM-Dis-EP-WM55",
+        "description": "Sélectionnez l'appareil Homematic(IP) Local représentant l'écran HM-Dis-EP-WM55.",
+        "data": {
+          "device_id": "Appareil d'affichage",
+          "channel": "Canal",
+          "name": "Nom"
+        }
+      }
+    },
+    "error": {
+      "device_not_found": "L'appareil sélectionné est introuvable"
+    },
+    "abort": {
+      "already_configured": "Cette combinaison appareil/canal est déjà configurée"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Envoyer un message",
+      "description": "Envoie du texte, des icônes, un son et un signal LED à un écran HM-Dis-EP-WM55.",
+      "fields": {
+        "device_id": { "name": "Écran", "description": "Le ou les écrans HM-Dis-EP-WM55 auxquels envoyer le message." },
+        "line2": { "name": "Ligne 2", "description": "Texte pour la ligne 2 (12 caractères max.)." },
+        "icon2": { "name": "Icône ligne 2", "description": "Icône pour la ligne 2." },
+        "line3": { "name": "Ligne 3", "description": "Texte pour la ligne 3 (12 caractères max.)." },
+        "icon3": { "name": "Icône ligne 3", "description": "Icône pour la ligne 3." },
+        "line4": { "name": "Ligne 4", "description": "Texte pour la ligne 4 (12 caractères max.)." },
+        "icon4": { "name": "Icône ligne 4", "description": "Icône pour la ligne 4." },
+        "sound": { "name": "Son", "description": "Motif sonore du bip." },
+        "repeat": { "name": "Répétitions", "description": "Nombre de répétitions (0 = infini)." },
+        "distance": { "name": "Intervalle", "description": "Secondes entre les répétitions." },
+        "led": { "name": "LED", "description": "Couleur du signal LED." }
+      }
+    }
+  },
+  "selector": {
+    "icon": {
+      "options": {
+        "aus": "Désactivé",
+        "ein": "Activé",
+        "offen": "Ouvert",
+        "geschlossen": "Fermé",
+        "fehler": "Erreur",
+        "alles_ok": "Tout est OK",
+        "information": "Information",
+        "neue_nachricht": "Nouveau message",
+        "servicemeldung": "Message de service"
+      }
+    },
+    "sound": {
+      "options": {
+        "aus": "Désactivé",
+        "lang_lang": "Long, long",
+        "lang_kurz": "Long, court",
+        "lang_kurz_kurz": "Long, court, court",
+        "kurz": "Court",
+        "kurz_kurz": "Court, court",
+        "lang": "Long"
+      }
+    },
+    "led": {
+      "options": {
+        "aus": "Désactivé",
+        "rot": "Rouge",
+        "gruen": "Vert",
+        "orange": "Orange"
+      }
+    }
+  }
+}

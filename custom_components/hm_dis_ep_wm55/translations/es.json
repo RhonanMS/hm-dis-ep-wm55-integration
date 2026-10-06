@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pantalla HM-Dis-EP-WM55",
+        "description": "Selecciona el dispositivo Homematic(IP) Local que representa la pantalla HM-Dis-EP-WM55.",
+        "data": {
+          "device_id": "Dispositivo de pantalla",
+          "channel": "Canal",
+          "name": "Nombre"
+        }
+      }
+    },
+    "error": {
+      "device_not_found": "No se encontró el dispositivo seleccionado"
+    },
+    "abort": {
+      "already_configured": "Esta combinación de dispositivo/canal ya está configurada"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Enviar mensaje",
+      "description": "Envía texto, iconos, sonido y señal LED a una pantalla HM-Dis-EP-WM55.",
+      "fields": {
+        "device_id": { "name": "Pantalla", "description": "La(s) pantalla(s) HM-Dis-EP-WM55 a las que se enviará el mensaje." },
+        "line2": { "name": "Línea 2", "description": "Texto para la línea 2 (máx. 12 caracteres)." },
+        "icon2": { "name": "Icono línea 2", "description": "Icono para la línea 2." },
+        "line3": { "name": "Línea 3", "description": "Texto para la línea 3 (máx. 12 caracteres)." },
+        "icon3": { "name": "Icono línea 3", "description": "Icono para la línea 3." },
+        "line4": { "name": "Línea 4", "description": "Texto para la línea 4 (máx. 12 caracteres)." },
+        "icon4": { "name": "Icono línea 4", "description": "Icono para la línea 4." },
+        "sound": { "name": "Sonido", "description": "Patrón de sonido del zumbador." },
+        "repeat": { "name": "Repeticiones", "description": "Número de repeticiones (0 = infinito)." },
+        "distance": { "name": "Intervalo", "description": "Segundos entre repeticiones." },
+        "led": { "name": "LED", "description": "Color de la señal LED." }
+      }
+    }
+  },
+  "selector": {
+    "icon": {
+      "options": {
+        "aus": "Apagado",
+        "ein": "Encendido",
+        "offen": "Abierto",
+        "geschlossen": "Cerrado",
+        "fehler": "Error",
+        "alles_ok": "Todo OK",
+        "information": "Información",
+        "neue_nachricht": "Mensaje nuevo",
+        "servicemeldung": "Mensaje de servicio"
+      }
+    },
+    "sound": {
+      "options": {
+        "aus": "Apagado",
+        "lang_lang": "Largo, largo",
+        "lang_kurz": "Largo, corto",
+        "lang_kurz_kurz": "Largo, corto, corto",
+        "kurz": "Corto",
+        "kurz_kurz": "Corto, corto",
+        "lang": "Largo"
+      }
+    },
+    "led": {
+      "options": {
+        "aus": "Apagado",
+        "rot": "Rojo",
+        "gruen": "Verde",
+        "orange": "Naranja"
+      }
+    }
+  }
+}

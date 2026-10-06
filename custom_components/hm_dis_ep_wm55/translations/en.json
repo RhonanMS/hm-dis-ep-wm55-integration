@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HM-Dis-EP-WM55 Display",
+        "description": "Select the Homematic(IP) Local device representing the HM-Dis-EP-WM55 display.",
+        "data": {
+          "device_id": "Display device",
+          "channel": "Channel",
+          "name": "Name"
+        }
+      }
+    },
+    "error": {
+      "device_not_found": "The selected device could not be found"
+    },
+    "abort": {
+      "already_configured": "This device/channel combination is already configured"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Send message",
+      "description": "Sends text, icons, sound and LED signal to a HM-Dis-EP-WM55 display.",
+      "fields": {
+        "device_id": { "name": "Display", "description": "The HM-Dis-EP-WM55 display(s) to send the message to." },
+        "line2": { "name": "Line 2", "description": "Text for line 2 (max. 12 characters)." },
+        "icon2": { "name": "Icon line 2", "description": "Icon for line 2." },
+        "line3": { "name": "Line 3", "description": "Text for line 3 (max. 12 characters)." },
+        "icon3": { "name": "Icon line 3", "description": "Icon for line 3." },
+        "line4": { "name": "Line 4", "description": "Text for line 4 (max. 12 characters)." },
+        "icon4": { "name": "Icon line 4", "description": "Icon for line 4." },
+        "sound": { "name": "Sound", "description": "Beeper sound pattern." },
+        "repeat": { "name": "Repeat", "description": "Number of repeats (0 = infinite)." },
+        "distance": { "name": "Distance", "description": "Seconds between repeats." },
+        "led": { "name": "LED", "description": "LED signal color." }
+      }
+    }
+  },
+  "selector": {
+    "icon": {
+      "options": {
+        "aus": "Off",
+        "ein": "On",
+        "offen": "Open",
+        "geschlossen": "Closed",
+        "fehler": "Error",
+        "alles_ok": "All OK",
+        "information": "Information",
+        "neue_nachricht": "New message",
+        "servicemeldung": "Service message"
+      }
+    },
+    "sound": {
+      "options": {
+        "aus": "Off",
+        "lang_lang": "Long, long",
+        "lang_kurz": "Long, short",
+        "lang_kurz_kurz": "Long, short, short",
+        "kurz": "Short",
+        "kurz_kurz": "Short, short",
+        "lang": "Long"
+      }
+    },
+    "led": {
+      "options": {
+        "aus": "Off",
+        "rot": "Red",
+        "gruen": "Green",
+        "orange": "Orange"
+      }
+    }
+  }
+}

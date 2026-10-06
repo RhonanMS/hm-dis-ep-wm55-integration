@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Display HM-Dis-EP-WM55",
+        "description": "Seleziona il dispositivo Homematic(IP) Local che rappresenta il display HM-Dis-EP-WM55.",
+        "data": {
+          "device_id": "Dispositivo display",
+          "channel": "Canale",
+          "name": "Nome"
+        }
+      }
+    },
+    "error": {
+      "device_not_found": "Il dispositivo selezionato non è stato trovato"
+    },
+    "abort": {
+      "already_configured": "Questa combinazione dispositivo/canale è già configurata"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Invia messaggio",
+      "description": "Invia testo, icone, suono e segnale LED a un display HM-Dis-EP-WM55.",
+      "fields": {
+        "device_id": { "name": "Display", "description": "Il/i display HM-Dis-EP-WM55 a cui inviare il messaggio." },
+        "line2": { "name": "Riga 2", "description": "Testo per la riga 2 (max. 12 caratteri)." },
+        "icon2": { "name": "Icona riga 2", "description": "Icona per la riga 2." },
+        "line3": { "name": "Riga 3", "description": "Testo per la riga 3 (max. 12 caratteri)." },
+        "icon3": { "name": "Icona riga 3", "description": "Icona per la riga 3." },
+        "line4": { "name": "Riga 4", "description": "Testo per la riga 4 (max. 12 caratteri)." },
+        "icon4": { "name": "Icona riga 4", "description": "Icona per la riga 4." },
+        "sound": { "name": "Suono", "description": "Modello sonoro del cicalino." },
+        "repeat": { "name": "Ripetizioni", "description": "Numero di ripetizioni (0 = infinito)." },
+        "distance": { "name": "Intervallo", "description": "Secondi tra le ripetizioni." },
+        "led": { "name": "LED", "description": "Colore del segnale LED." }
+      }
+    }
+  },
+  "selector": {
+    "icon": {
+      "options": {
+        "aus": "Spento",
+        "ein": "Acceso",
+        "offen": "Aperto",
+        "geschlossen": "Chiuso",
+        "fehler": "Errore",
+        "alles_ok": "Tutto OK",
+        "information": "Informazione",
+        "neue_nachricht": "Nuovo messaggio",
+        "servicemeldung": "Messaggio di servizio"
+      }
+    },
+    "sound": {
+      "options": {
+        "aus": "Spento",
+        "lang_lang": "Lungo, lungo",
+        "lang_kurz": "Lungo, corto",
+        "lang_kurz_kurz": "Lungo, corto, corto",
+        "kurz": "Corto",
+        "kurz_kurz": "Corto, corto",
+        "lang": "Lungo"
+      }
+    },
+    "led": {
+      "options": {
+        "aus": "Spento",
+        "rot": "Rosso",
+        "gruen": "Verde",
+        "orange": "Arancione"
+      }
+    }
+  }
+}

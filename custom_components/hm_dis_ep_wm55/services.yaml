@@ -1,0 +1,100 @@
+send_message:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: hm_dis_ep_wm55
+          multiple: true
+    line2:
+      example: "Temperatur"
+      selector:
+        text:
+    icon2:
+      selector:
+        select:
+          translation_key: icon
+          options:
+            - aus
+            - ein
+            - offen
+            - geschlossen
+            - fehler
+            - alles_ok
+            - information
+            - neue_nachricht
+            - servicemeldung
+    line3:
+      example: "21.5 °C"
+      selector:
+        text:
+    icon3:
+      selector:
+        select:
+          translation_key: icon
+          options:
+            - aus
+            - ein
+            - offen
+            - geschlossen
+            - fehler
+            - alles_ok
+            - information
+            - neue_nachricht
+            - servicemeldung
+    line4:
+      example: "Fenster offen"
+      selector:
+        text:
+    icon4:
+      selector:
+        select:
+          translation_key: icon
+          options:
+            - aus
+            - ein
+            - offen
+            - geschlossen
+            - fehler
+            - alles_ok
+            - information
+            - neue_nachricht
+            - servicemeldung
+    sound:
+      default: "aus"
+      selector:
+        select:
+          translation_key: sound
+          options:
+            - aus
+            - lang_lang
+            - lang_kurz
+            - lang_kurz_kurz
+            - kurz
+            - kurz_kurz
+            - lang
+    repeat:
+      default: 1
+      selector:
+        number:
+          min: 0
+          max: 15
+          mode: box
+    distance:
+      default: 10
+      selector:
+        number:
+          min: 10
+          max: 160
+          unit_of_measurement: s
+          mode: box
+    led:
+      default: "aus"
+      selector:
+        select:
+          translation_key: led
+          options:
+            - aus
+            - rot
+            - gruen
+            - orange

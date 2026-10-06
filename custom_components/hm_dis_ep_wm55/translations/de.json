@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HM-Dis-EP-WM55 Display",
+        "description": "Wähle das Homematic(IP)-Local-Gerät aus, das das HM-Dis-EP-WM55 Display repräsentiert.",
+        "data": {
+          "device_id": "Display-Gerät",
+          "channel": "Kanal",
+          "name": "Name"
+        }
+      }
+    },
+    "error": {
+      "device_not_found": "Das ausgewählte Gerät wurde nicht gefunden"
+    },
+    "abort": {
+      "already_configured": "Diese Geräte-/Kanal-Kombination ist bereits eingerichtet"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Nachricht senden",
+      "description": "Sendet Text, Icons, Ton und LED-Signal an ein HM-Dis-EP-WM55 Display.",
+      "fields": {
+        "device_id": { "name": "Display", "description": "Das/die HM-Dis-EP-WM55 Display(s), an die die Nachricht gesendet werden soll." },
+        "line2": { "name": "Zeile 2", "description": "Text für Zeile 2 (max. 12 Zeichen)." },
+        "icon2": { "name": "Icon Zeile 2", "description": "Icon für Zeile 2." },
+        "line3": { "name": "Zeile 3", "description": "Text für Zeile 3 (max. 12 Zeichen)." },
+        "icon3": { "name": "Icon Zeile 3", "description": "Icon für Zeile 3." },
+        "line4": { "name": "Zeile 4", "description": "Text für Zeile 4 (max. 12 Zeichen)." },
+        "icon4": { "name": "Icon Zeile 4", "description": "Icon für Zeile 4." },
+        "sound": { "name": "Ton", "description": "Signalton-Muster des Piepsers." },
+        "repeat": { "name": "Wiederholungen", "description": "Anzahl der Wiederholungen (0 = unendlich)." },
+        "distance": { "name": "Abstand", "description": "Sekunden zwischen den Wiederholungen." },
+        "led": { "name": "LED", "description": "Farbe des LED-Signals." }
+      }
+    }
+  },
+  "selector": {
+    "icon": {
+      "options": {
+        "aus": "Aus",
+        "ein": "Ein",
+        "offen": "Offen",
+        "geschlossen": "Geschlossen",
+        "fehler": "Fehler",
+        "alles_ok": "Alles OK",
+        "information": "Information",
+        "neue_nachricht": "Neue Nachricht",
+        "servicemeldung": "Servicemeldung"
+      }
+    },
+    "sound": {
+      "options": {
+        "aus": "Aus",
+        "lang_lang": "Lang, lang",
+        "lang_kurz": "Lang, kurz",
+        "lang_kurz_kurz": "Lang, kurz, kurz",
+        "kurz": "Kurz",
+        "kurz_kurz": "Kurz, kurz",
+        "lang": "Lang"
+      }
+    },
+    "led": {
+      "options": {
+        "aus": "Aus",
+        "rot": "Rot",
+        "gruen": "Grün",
+        "orange": "Orange"
+      }
+    }
+  }
+}

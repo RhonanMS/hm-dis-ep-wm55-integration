@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HM-Dis-EP-WM55 Display",
+        "description": "Selecteer het Homematic(IP) Local-apparaat dat het HM-Dis-EP-WM55 display vertegenwoordigt.",
+        "data": {
+          "device_id": "Display-apparaat",
+          "channel": "Kanaal",
+          "name": "Naam"
+        }
+      }
+    },
+    "error": {
+      "device_not_found": "Het geselecteerde apparaat is niet gevonden"
+    },
+    "abort": {
+      "already_configured": "Deze apparaat-/kanaalcombinatie is al geconfigureerd"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Bericht verzenden",
+      "description": "Verzendt tekst, iconen, geluid en LED-signaal naar een HM-Dis-EP-WM55 display.",
+      "fields": {
+        "device_id": { "name": "Display", "description": "Het/de HM-Dis-EP-WM55 display(s) waarnaar het bericht wordt verzonden." },
+        "line2": { "name": "Regel 2", "description": "Tekst voor regel 2 (max. 12 tekens)." },
+        "icon2": { "name": "Icoon regel 2", "description": "Icoon voor regel 2." },
+        "line3": { "name": "Regel 3", "description": "Tekst voor regel 3 (max. 12 tekens)." },
+        "icon3": { "name": "Icoon regel 3", "description": "Icoon voor regel 3." },
+        "line4": { "name": "Regel 4", "description": "Tekst voor regel 4 (max. 12 tekens)." },
+        "icon4": { "name": "Icoon regel 4", "description": "Icoon voor regel 4." },
+        "sound": { "name": "Geluid", "description": "Geluidspatroon van de zoemer." },
+        "repeat": { "name": "Herhalingen", "description": "Aantal herhalingen (0 = oneindig)." },
+        "distance": { "name": "Afstand", "description": "Seconden tussen herhalingen." },
+        "led": { "name": "LED", "description": "Kleur van het LED-signaal." }
+      }
+    }
+  },
+  "selector": {
+    "icon": {
+      "options": {
+        "aus": "Uit",
+        "ein": "Aan",
+        "offen": "Open",
+        "geschlossen": "Gesloten",
+        "fehler": "Fout",
+        "alles_ok": "Alles OK",
+        "information": "Informatie",
+        "neue_nachricht": "Nieuw bericht",
+        "servicemeldung": "Servicemelding"
+      }
+    },
+    "sound": {
+      "options": {
+        "aus": "Uit",
+        "lang_lang": "Lang, lang",
+        "lang_kurz": "Lang, kort",
+        "lang_kurz_kurz": "Lang, kort, kort",
+        "kurz": "Kort",
+        "kurz_kurz": "Kort, kort",
+        "lang": "Lang"
+      }
+    },
+    "led": {
+      "options": {
+        "aus": "Uit",
+        "rot": "Rood",
+        "gruen": "Groen",
+        "orange": "Oranje"
+      }
+    }
+  }
+}
