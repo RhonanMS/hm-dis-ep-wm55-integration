@@ -20,3 +20,7 @@ Thumbs.db
 # Personal/local automation examples (contain real device IDs etc.) -
 # intentionally not published, see docs/automations.md.
 /examples/
+
+# Local checklist for manual HACS-default/brands submission steps -
+# not meant to be published.
+/HACSPUBLISH.md
