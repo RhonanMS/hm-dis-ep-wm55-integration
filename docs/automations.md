@@ -10,8 +10,9 @@ needed to recreate it is below.)
 ## What It Does
 
 1. **All windows closed** → `Alles OK!` on line 3, icon `alles_ok`, green LED.
-2. **Any window open** → `OFFEN:` on line 2 (icon `offen`), followed by the
-   abbreviations of the open rooms wrapped across line 3/4, red LED.
+2. **Any window open** → `OFFEN:` on line 2, followed by the abbreviations
+   of the open rooms wrapped across line 3/4 (icon `offen` on line 3), red
+   LED.
 3. **Upper button pressed while Büro or Bad is open** → re-sends the exact
    same message as (2), additionally playing the `lang_kurz_kurz` sound.
 
