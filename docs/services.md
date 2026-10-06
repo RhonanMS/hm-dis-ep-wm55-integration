@@ -25,6 +25,15 @@ Text longer than 12 characters is truncated with a log warning; characters
 outside the supported set are replaced with `?` and logged. German umlauts
 (`ä ö ü Ä Ö Ü ß`) are natively supported — no transliteration needed.
 
+> **Clearing a line reliably:** omitted text is always sent as a single
+> space, so an unset `lineX` reliably blanks that line (hardware-verified).
+> Whether *omitting* `iconX` also clears an icon left over from a previous
+> call is untested, though — if you're re-sending a full display state
+> (e.g. from an automation) and a line shouldn't show an icon, pass
+> `iconX: aus` explicitly rather than leaving the field out, to guarantee
+> the icon disappears. See [docs/automations.md](automations.md#clearing-icons-on-every-state-change)
+> for why.
+
 ## `icon2`/`icon3`/`icon4` options
 
 | Value | Meaning |

@@ -52,6 +52,21 @@ intermediate lists — both are easy ways to accidentally turn a clean list
 into a string full of stray newlines in Jinja. Splitting the final
 `"<line3>||<line4>"` string on `||` sidesteps that entirely.
 
+### Clearing icons on every state change
+
+`protocol.py` guarantees that a line with no text is blanked (it fills
+empty text with a space — see [HM-Dis-EP-WM55.md](../HM-Dis-EP-WM55.md),
+Test D). Whether *omitting* the icon field for a line also clears an icon
+left over from a previous message is, however, untested — it's plausible
+the device treats a missing icon byte the same way it treats missing text
+(leave the previous value alone). To not depend on that assumption, both
+branches of the script explicitly pass `icon: aus` for every line that
+shouldn't show an icon, instead of leaving the field out. `aus` (`0x80`) is
+a hardware-verified icon code, so this costs nothing and removes the
+ambiguity entirely — e.g. when switching from "OFFEN:" (icon on line 2)
+back to "Alles OK!", line 2's icon is explicitly cleared rather than
+hoping it disappears on its own.
+
 ## Placeholders to Replace
 
 | Placeholder | Where | What |
