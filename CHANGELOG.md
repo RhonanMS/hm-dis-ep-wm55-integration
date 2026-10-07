@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Documentation
+
+- Corrected the "clearing an icon" guidance introduced in v1.0.5: that
+  entry recommended explicitly passing `icon: aus` (`0x80`) to reliably
+  remove an icon from a line. This is now believed to be wrong — `aus` is
+  most likely a distinct "unlit bulb" icon graphic (the counterpart to
+  `ein`'s lit bulb), not a "no icon" value, and was never hardware-verified
+  for its visual appearance. The documented way to clear an icon is now to
+  simply omit the `iconX` field — `build_line_block()` already only sends
+  the icon sub-block when an icon is given. Flagged as **not yet
+  hardware-verified** pending a real-device test; see the open "Test E"
+  note in [HM-Dis-EP-WM55.md](HM-Dis-EP-WM55.md#icon-codes). No code
+  change — `protocol.py` already behaved this way.
+
 ## [1.0.5] - 2026-10-06
 
 ### Added

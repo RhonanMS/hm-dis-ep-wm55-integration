@@ -69,6 +69,19 @@ def test_icon_only_line_is_filled_with_space_so_icon_actually_applies():
     ]
 
 
+def test_omitted_icon_sends_no_icon_sub_block():
+    """Documented way to clear an icon: omit iconX, not icon='aus'.
+
+    See the "Clearing a line reliably" note in docs/services.md and the
+    open "Test E" question in HM-Dis-EP-WM55.md - not yet hardware-verified
+    that this actually blanks a previously-set icon, but this locks in the
+    existing encoding contract (no 0x13 token when icon is None).
+    """
+    tokens = protocol.build_line_block("Text", None)
+    assert "0x13" not in tokens
+    assert tokens == ["0x12", "0x54", "0x65", "0x78", "0x74", "0x0A"]
+
+
 def test_umlauts_are_encoded_natively():
     assert protocol.encode_text("Äöü ß") == [
         "0x5B",

@@ -161,6 +161,24 @@ Sent after the prefix byte `0x13`:
 * `0x87` – `NEW MESSAGE` (envelope)
 * `0x88` – `SERVICE MESSAGE` (wrench)
 
+> **Open question — `0x80`/`0x81` appearance not isolated-tested:** these
+> descriptions come only from inline comments in the source Gist
+> (`! 0x80 AUS` / `! 0x81 EIN`), not from a hardware test isolating what
+> each one actually renders. They read as a state pair (unlit/lit bulb),
+> which would make `0x80` a real icon graphic rather than a "no icon"
+> value. Reports from other HomeMatic integrations (IPSymcon/FHEM-based)
+> suggest the actual way to show no icon is to **omit the icon sub-block
+> (`0x13` + code) entirely** from the line block — which is exactly what
+> `build_line_block()` already does when no icon is passed. Neither claim
+> is hardware-verified here yet.
+>
+> **TODO — Test E (not yet run):** on real hardware, (1) send `icon2:
+> fehler` with some text on line 2, (2) resend with only `line2` text and
+> `icon2` omitted entirely, (3) observe whether the error icon disappears.
+> If it does, this confirms omitting the icon clears it and the `0x80`/
+> `0x81` pair are just two more selectable icons. Record the result here
+> and move it into "Verified Tests" once run.
+
 ### Sound/Repeat/Distance/Signal Block
 
 After the three line blocks follows a four-part block of marker byte +

@@ -27,18 +27,25 @@ outside the supported set are replaced with `?` and logged. German umlauts
 
 > **Clearing a line reliably:** omitted text is always sent as a single
 > space, so an unset `lineX` reliably blanks that line (hardware-verified).
-> Whether *omitting* `iconX` also clears an icon left over from a previous
-> call is untested, though — if you're re-sending a full display state
-> (e.g. from an automation) and a line shouldn't show an icon, pass
-> `iconX: aus` explicitly rather than leaving the field out, to guarantee
-> the icon disappears. See [docs/automations.md](automations.md#clearing-icons-on-every-state-change)
-> for why.
+> To remove an icon from a line, simply omit `iconX` from the call (together
+> with the `lineX` text you want shown, since a full line is always
+> rewritten anyway) — the protocol has no dedicated "no icon" value; the
+> icon sub-block (`0x13` + code) is only sent when `iconX` is set, and
+> omitting it is the mechanism for showing no icon. **This is not yet
+> hardware-verified in this repository** — see the open question in
+> [HM-Dis-EP-WM55.md](../HM-Dis-EP-WM55.md#icon-codes) and
+> [docs/automations.md](automations.md#clearing-icons-on-every-state-change).
+> Previously this page recommended passing `iconX: aus` explicitly instead;
+> that is now believed to be wrong — `aus` (`0x80`) is most likely a
+> distinct icon graphic (an unlit bulb, the counterpart to `ein`'s lit
+> bulb), not a "no icon" sentinel, so sending it would show an icon rather
+> than clear one.
 
 ## `icon2`/`icon3`/`icon4` options
 
 | Value | Meaning |
 |-------|---------|
-| `aus` | Off (no icon) |
+| `aus` | Off — likely a distinct "unlit bulb" icon graphic (counterpart to `ein`), **not** a "no icon" value; see the note above on clearing icons |
 | `ein` | On (filled bulb/circle) |
 | `offen` | Open (window) |
 | `geschlossen` | Closed (window) |

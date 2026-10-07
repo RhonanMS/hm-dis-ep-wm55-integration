@@ -57,16 +57,19 @@ into a string full of stray newlines in Jinja. Splitting the final
 
 `protocol.py` guarantees that a line with no text is blanked (it fills
 empty text with a space — see [HM-Dis-EP-WM55.md](../HM-Dis-EP-WM55.md),
-Test D). Whether *omitting* the icon field for a line also clears an icon
-left over from a previous message is, however, untested — it's plausible
-the device treats a missing icon byte the same way it treats missing text
-(leave the previous value alone). To not depend on that assumption, both
-branches of the script explicitly pass `icon: aus` for every line that
-shouldn't show an icon, instead of leaving the field out. `aus` (`0x80`) is
-a hardware-verified icon code, so this costs nothing and removes the
-ambiguity entirely — e.g. when switching from "OFFEN:" (icon on line 2)
-back to "Alles OK!", line 2's icon is explicitly cleared rather than
-hoping it disappears on its own.
+Test D). To clear an icon left over from a previous message, both branches
+of the script simply omit the icon field for every line that shouldn't
+show an icon, instead of passing a specific value — the icon sub-block
+(`0x13` + code) is only sent when an icon is set, so leaving the field out
+is the mechanism for showing no icon. **This is not yet hardware-verified**
+(see the open question in [HM-Dis-EP-WM55.md](../HM-Dis-EP-WM55.md#icon-codes)):
+an earlier version of this doc instead recommended explicitly passing
+`icon: aus`, believing that was a safer "guaranteed clear" — that is now
+believed to be wrong, since `aus` (`0x80`) most likely renders as its own
+icon (an unlit bulb, paired with `ein`'s lit bulb) rather than blanking the
+icon area, and was never itself hardware-verified either. E.g. when
+switching from "OFFEN:" (icon on line 2) back to "Alles OK!", line 2's
+`icon` field is simply left out of that call.
 
 ## Placeholders to Replace
 
