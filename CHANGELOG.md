@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Unreleased
+## [1.0.6] - 2026-10-07
 
 ### Documentation
 
@@ -99,6 +99,7 @@ All notable changes to this project are documented in this file.
 - Full protocol documentation (`HM-Dis-EP-WM55.md`), installation guide
   (`INSTALLATION.md`), and additional docs under `docs/`.
 
+[1.0.6]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.6
 [1.0.5]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.5
 [1.0.4]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.4
 [1.0.3]: https://github.com/RhonanMS/hm-dis-ep-wm55-integration/releases/tag/v1.0.3
